@@ -22,6 +22,7 @@ RUN apt-get update \
  && apt-get install --assume-yes --no-install-recommends \
     vim \
     kali-linux-headless \
+    gospider \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/ \
  && update-ca-certificates
@@ -35,10 +36,7 @@ RUN echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen \
  && locale-gen \
  && dpkg-reconfigure locales
 
-# Create mnt dir inside the container
-RUN mkdir /mnt \
- && chown docker:docker -R /mnt
-
+# Make space for mount
 VOLUME ["/mnt"]
 
 # CMD [ "/bin/bash", "-c", "node bin/server.js" ]

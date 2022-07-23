@@ -2,6 +2,8 @@
 
 tag="$(date '+%Y-%m-%d')"
 
+echo "Build tag is:  ${tag}"
+
 #docker build --squash \
 docker build \
   -f Dockerfile \
